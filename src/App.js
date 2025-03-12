@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+// src/App.js
+import React from 'react';
+import FlashCard from './components/FlashCard';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>Frontend FlashCards</h1>
+      <div className="checkboxes">
+        {["HTML", "CSS", "REACT", "GIT", "JAVASCRIPT"].map((label) => (
+          <label key={label}>
+            <input type="checkbox" />
+            {label}
+          </label>
+        ))}
+      </div>
+      <FlashCard />
     </div>
   );
-}
+};
 
 export default App;
