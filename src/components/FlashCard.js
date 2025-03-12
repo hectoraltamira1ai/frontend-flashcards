@@ -10,26 +10,50 @@ const questions = [
   { question: "What is JavaScript?", answer: "A programming language for the web", category: "JAVASCRIPT" },
 ];
 
-const FlashCard = () => {
+const FlashCard = ({ selectedCategories }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const [filteredQuestions, setFilteredQuestions] = useState([]);
 
-  const handleFlip = () => {
-    setFlipped(true);
-    setTimeout(() => {
-      setCurrentQuestion((prev) => (prev + 1) % questions.length);
-      setFlipped(false);
-    }, 2000);
-  };
+  useEffect(() => {
+    setFilteredQuestions(
+      questions.filter((question) => selectedCategories.includes(question.category))
+    );
+    setCurrentQuestion(0);
+    setFlipped(false);
+  }, [selectedCategories]);
+
+  useEffect(() => {
+    if (filteredQuestions.length > 0) {
+      const interval = setInterval(() => {
+        setFlipped((prev) => !prev);
+        if (flipped) {
+          setCurrentQuestion((prev) => (prev + 1) % filteredQuestions.length);
+        }
+      }, 1500);
+      return () => clearInterval(interval);
+    }
+  }, [filteredQuestions, flipped]);
 
   return (
-    <div className={`flip-card ${flipped ? 'flipped' : ''}`} onClick={handleFlip}>
+    <div className={`flip-card ${flipped ? 'flipped' : ''}`}>
       <div className="flip-card-inner">
         <div className="flip-card-front">
-          <h2>{questions[currentQuestion].question}</h2>
+          <h2>
+            {filteredQuestions.length > 0 
+              ? filteredQuestions[currentQuestion].question 
+              : (
+                <>
+                  Frontend FlashCards
+                  <br />
+                  select category
+                </>
+              )
+            }
+          </h2>
         </div>
         <div className="flip-card-back">
-          <h2>{questions[currentQuestion].answer}</h2>
+          <h2>{filteredQuestions.length > 0 ? filteredQuestions[currentQuestion].answer : ""}</h2>
         </div>
       </div>
     </div>

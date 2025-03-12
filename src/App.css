@@ -4,6 +4,7 @@ body, html {
   padding: 0;
   height: 100%;
   overflow: hidden;
+  background-color:aliceblue
 }
 
 .app {
@@ -19,7 +20,7 @@ body, html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
 }
 
 h1 {

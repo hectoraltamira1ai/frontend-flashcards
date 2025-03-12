@@ -1,9 +1,9 @@
 /* src/components/FlashCard.css */
 .flip-card {
-    width: 300px; /* Adjust width as needed */
+    width: 370px; /* Adjust width as needed */
     height: 200px; /* Adjust height as needed */
     perspective: 1000px;
-    margin: 20px auto; /* Center the card */
+    margin: 40px auto; /* Center the card */
   }
   
   .flip-card-inner {
@@ -26,8 +26,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 14px;
     color: white;
+    border-radius: 16px;
   }
   
   .flip-card-front {
