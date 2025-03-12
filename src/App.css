@@ -21,9 +21,16 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: left;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 h1 {
   margin: 0;
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}   
