@@ -51,7 +51,7 @@ const App = () => {
       </div>
       <div className="buttons">
         <button onClick={handleStart}>Start</button>
-        <span style={{ margin: '0 10px' }}></span>
+        <span style={{ margin: '0 5px' }}></span>
         <button onClick={handleReset}>Reset</button>
       </div>
       <FlashCard selectedCategories={selectedCategories} />
