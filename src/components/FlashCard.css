@@ -1,7 +1,7 @@
 /* src/components/FlashCard.css */
 .flip-card {
-    width: 370px; /* Adjust width as needed */
-    height: 200px; /* Adjust height as needed */
+    width: 300px; /* Adjust width as needed */
+    height: 175px; /* Adjust height as needed */
     perspective: 1000px;
     margin: 40px auto; /* Center the card */
   }
